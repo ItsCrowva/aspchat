@@ -1,0 +1,84 @@
+:root {
+    --bar-toggle-r: 100%;
+    --bar-toggle-l: none;
+    --sb-top: 72px;
+    --sb-right: 0px;
+    --sb-bottom: 0px;
+    --sb-left: 0px;
+    --sb-origin: left top;
+    --sb-rotate-bar: 90deg;
+    --sb-rotate-bar-inner: 180deg;
+    --sb-rotate-servers: 90deg;
+    --sb-bar-top: 0;
+    --sb-bar-left: 100%;
+    --sb-bar-height: 100vw;
+    --sb-label-left: calc(-50% - 42px);
+    --sb-label-top: calc(50% + 40px);
+}
+
+.base-3dtUhz /* friends list, chat */ {
+    position: absolute;
+    left: var(--sb-left);
+    top: var(--sb-top);
+    bottom: var(--sb-bottom);
+    right: var(--sb-right);
+    height: calc(100% - var(--sb-top, var(--sb-bottom)));
+}
+
+.guilds-1SWlCJ.hidden-3dXt4k + .base-3dtUhz /* hide server bar when fullscreen */ {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+}
+
+.guilds-1SWlCJ /* the whole navigation bar */ {
+    top: var(--sb-bar-top);
+    left: var(--sb-bar-left);
+    transform-origin: var(--sb-origin);
+    transform: rotate(var(--sb-rotate-bar));
+    height: var(--sb-bar-height);
+}
+
+    .guilds-1SWlCJ .scroller-1Bvpku /* the navigation bar */ {
+        padding-top: 21px;
+    }
+
+[aria-label="Servers"] > * /* all servers and folders */ {
+    margin-top: 10px;
+}
+
+.guilds-1SWlCJ .listItem-GuPuDH .wrapper-25eVIn /* folder */ {
+    transform: rotate(var(--sb-rotate-servers));
+}
+
+.guilds-1SWlCJ > * /* Server bar elements */ {
+    transform: rotate(var(--sb-rotate-bar-inner));
+}
+
+div[id^="folder"] > * /* servers in the opened folder */ {
+    margin: 8px 0;
+}
+
+.layer-v9HyYc > [aria-label*="Pinned Messages"] > .messagesPopoutWrap-1MQ1bW /* pinned messages */,
+.layer-v9HyYc > [aria-label="Recent Mentions"] /* recent mentions */,
+.layer-v9HyYc > [aria-label="Unreads"] /* recent mentions */ {
+    max-height: 80vh !important;
+}
+
+.tooltipRight-2JM5PQ.tooltip-2QfLtc /* server name tooltip */ {
+    box-shadow: 0px 0px 3px 1px var(--interactive-active) !important;
+    position: relative;
+    left: var(--sb-label-left);
+    transform: translateY(var(--sb-label-top, 0)) !important;
+}
+
+.tooltipRight-2JM5PQ > .tooltipPointer-3ZfirK /* little arrow for tooltip */ {
+    opacity: 0;
+}
+
+.unreadMentionsIndicatorBottom-2mDYbI /* new message red popup bottom */,
+.unreadMentionsIndicatorTop-2-tcdU /* new message red popup top */ {
+    display: none;
+}
